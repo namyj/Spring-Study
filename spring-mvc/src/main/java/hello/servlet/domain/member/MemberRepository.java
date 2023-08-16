@@ -1,7 +1,5 @@
 package hello.servlet.domain.member;
 
-import org.springframework.boot.autoconfigure.mail.MailProperties;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +11,7 @@ import java.util.Map;
 public class MemberRepository {
 
     // static : MemberRepository가 new로 여러번 생성되도, 아래 필드들은 하나만 생성됨
-    private static Map<Long, Memeber> store = new HashMap<>();
+    private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
     
     // 싱글톤
@@ -27,17 +25,17 @@ public class MemberRepository {
     private MemberRepository() {
     }
 
-    public Memeber save(Memeber member) {
+    public Member save(Member member) {
         member.setId(++sequence);
         store.put(member.getId(), member);
         return member;
     }
 
-    public Memeber findById(Long id) {
+    public Member findById(Long id) {
         return store.get(id);
     }
 
-    public List<Memeber> findAll() {
+    public List<Member> findAll() {
         // new ArrayList()<> 로 전달하는 이유?
         // ArrayList를 조작해도 store에 영향이 없도록
         return new ArrayList<>(store.values()); 

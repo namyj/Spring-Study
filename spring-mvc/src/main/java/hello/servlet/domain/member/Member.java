@@ -5,16 +5,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Memeber {
+public class Member {
 
     private Long id;
     private String username;
     private int age;
 
-    public Memeber() {
+    public Member() {
     }
 
-    public Memeber(String username, int age) {
+    public Member(String username, int age) {
         this.username = username;
         this.age = age;
     }
