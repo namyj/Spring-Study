@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class MemoryMemberRepository implements MemberRepository {
 
+    // 동시성 이슈 -> ConcurrenctHashMap 사용
     private static Map<Long, Member> storage = new HashMap<>();
 
     @Override
@@ -13,7 +14,7 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Member findByIs(Long id) {
+    public Member findById(Long id) {
         return storage.get(id);
     }
 }
