@@ -1,6 +1,6 @@
 package com.example.basic.member;
 
-public class MemberServiceImple implements MemberService {
+public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository = new MemoryMemberRepository();
 
